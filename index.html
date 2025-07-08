@@ -43,6 +43,107 @@
   <link href="https://fonts.googleapis.com/css2?display=swap&amp;family=Lexend:ital,wght@0,400;1,400&amp;family=Inter:ital,wght@0,400;1,400" rel="stylesheet" type="text/css"/>
 
   <style>
+    .mainten-box {
+  background: #1e1e2e;
+  color: #ccc;
+  padding: 30px;
+  border-radius: 16px;
+  max-width: 600px;
+  margin: 80px auto;
+  text-align: center;
+  font-family: "Lexend", sans-serif;
+  box-shadow: 0 0 20px rgba(0,0,0,0.4);
+}
+
+.mainten-box h1 {
+  font-size: 28px;
+  margin-bottom: 16px;
+  color: #fff;
+}
+
+.mainten-box p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+.bottom-note {
+  margin-top: 24px;
+  font-size: 13px;
+  color: #888;
+  font-style: italic;
+}
+
+/*  */
+    .project-grid {
+      font-family: Lexend;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 32px;
+      margin-top: 32px;
+      max-width: 800px;
+      margin-inline: auto;
+    }
+
+    .project-card {
+      background: #34344a;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 0 30px rgba(142, 68, 173, 0.4);
+    }
+
+    .project-card img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      aspect-ratio: 16 / 9;
+    }
+
+    .project-info {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      text-align: center;
+    }
+
+    .project-info h3 {
+      color: #fff;
+      margin: 0;
+      font-size: 18px;
+    }
+
+    .project-info p {
+      color: #ccc;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .project-info .button {
+      align-self: center;
+      padding: 10px 20px;
+      background: transparent;
+      border: 2px solid #8e44ad;
+      border-radius: 8px;
+      color: #fff;
+      font-weight: 500;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .project-info .button:hover {
+      background: #8e44ad;
+      color: #fff;
+    }
+
     .maintenance-container {
       text-align: center;
       padding: 40px 20px;
@@ -417,21 +518,99 @@
           </div>
         
           <div class="tab-pane" id="projects">
-            <div class="maintenance-container">
+            <div class="maintenance-container" style="font-family: Lexend;">
+              <div class="wrench-icon">🔧</div>
+              <h2>Project-nya Lagi Error</h2>
+              <p>Gak error sih... cuma lagi mikirin hidup.</p>
+              <div class="dot-loader">
+                <span></span><span></span><span></span>
+              </div>
+              <p class="bottom-note">
+                Project ini belum selesai, bukan karena sulit. Tapi karena saya overthinking kayak mantan kamu.
+              </p>
+            </div>
+            <!-- <div class="mainten-box">
+
+              
+              <h1>😵 <br> Project-nya Lagi Error</h1>
+              
+              <p>
+                Gak error sih... cuma lagi mikirin hidup.</p>
+                <div class="dot-loader">
+                  <span></span><span></span><span></span>
+                  </div>
+                <p class="bottom-note">
+                  Project ini belum selesai, bukan karena sulit. Tapi karena saya overthinking kayak mantan kamu.
+              </p>
+             
+            </div> -->
+            <div class="mainten-box">
+              <p class="bottom-note">
+                Kalau lo nyari gue,
+                Gue lagi di sawah...
+                Ngobrol sama cabai rawit tentang CSS yang gak mau center.
+              </p>
+              <button onclick="alert('SABAR KOCAK!! gak sabaran si makanya ditinggalin, chuakss😭')">Coba Klik Ini Untuk Refresh Harapan</button>
+            </div>
+            
+
+            
+
+            <!-- <div class="project-grid">
+              <div class="project-card">
+                <img src="https://via.placeholder.com/640x360?text=Preview+Project" alt="Landing Page UI Preview">
+                <div class="project-info">
+                  <h3>🎨 Landing Page UI</h3>
+                  <p>Clean, responsive, and conversion-focused UI built with HTML/CSS.</p>
+                  <a href="https://github.com/agusbayu13/landing-page" target="_blank" class="button">View Project</a>
+                </div>
+              </div>
+            
+              <div class="project-card">
+                <img src="https://via.placeholder.com/640x360?text=Preview+Project" alt="LMS Mobile App Preview">
+                <div class="project-info">
+                  <h3>📱 LMS Mobile App</h3>
+                  <p>UX Challenge design for Learning Management System (Figma-based prototype).</p>
+                  <a href="#" class="button">See Case Study</a>
+                </div>
+              </div>
+            
+              <div class="project-card">
+                <img src="images/portfolio.png" alt="Portfolio Website Preview">
+                <div class="project-info">
+                  <h3>💼 Portfolio Website</h3>
+                  <p>This very website — built with love and deployed on Firebase.</p>
+                  <a href="https://your-firebase.web.app" class="button">Visit Live</a>
+                </div>
+              </div>
+            </div> -->
+            
+          </div>
+          
+        
+          <div class="tab-pane" id="contact">
+            <div class="maintenance-container" style="font-family: Lexend;">
+              <div class="wrench-icon">🔧</div>
+              <h2>APA?! Mau cek ada kata" lain apa ngga?</h2>
+              <p>Sabar kocak! mandi dulu. baru selesai nangis di sawah</p>
+              <div class="dot-loader">
+                <span></span><span></span><span></span>
+              </div>
+              <p class="bottom-note">
+                kelilipan cabe.
+              </p>
+            </div>
+            <!-- <div class="maintenance-container">
               <div class="wrench-icon">🔧</div>
               <h2>Under Maintenance</h2>
               <p>We’re currently improving this section.<br>Check back soon for some awesome stuff!</p>
               <div class="dot-loader">
                 <span></span><span></span><span></span>
               </div>
-            </div>
-          </div>
+            </div> -->
+            <!-- <p>📧 Email: bayu@example.com</p>
+            <p>📍 LinkedIn: <a href="#">agusbayupamungkas</a></p> -->
           
-        
-          <div class="tab-pane" id="contact">
-            <p>📧 Email: bayu@example.com</p>
-            <p>📍 LinkedIn: <a href="#">agusbayupamungkas</a></p>
-          </div>
         </div>
 
         <div class="icc-credits" id="credits">
