@@ -1,3 +1,31 @@
+// Smooth infinite running slider via JavaScript (no CSS keyframes)
+window.addEventListener('DOMContentLoaded', () => {
+    const slider = document.getElementById('logoSlider');
+    // Duplicate content for seamless looping
+    slider.innerHTML += slider.innerHTML;
+  
+    // Get width of first set of slides (before duplication)
+    const slides = slider.children;
+    let totalWidth = 0;
+    for (let i = 0; i < slides.length / 2; i++) {
+      totalWidth += slides[i].offsetWidth + parseInt(getComputedStyle(slides[i]).marginRight || 0);
+    }
+  
+    // Animation speed: px per frame (adjust for desired speed)
+    const speed = 0.5; // pixel per frame (higher = faster)
+  
+    let posX = 0;
+    function animate() {
+      posX -= speed;
+      if (-posX >= totalWidth) {
+        posX = 0;
+      }
+      slider.style.transform = `translateX(${posX}px)`;
+      requestAnimationFrame(animate);
+    }
+    animate();
+  });
+
 const tabs = document.querySelectorAll('.tab');
     const panes = document.querySelectorAll('.tab-pane');
 
