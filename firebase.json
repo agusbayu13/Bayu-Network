@@ -1,11 +1,7 @@
 {
   "hosting": {
-    "site": "agusbayu",
-    "public": "./",
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
-    ]
+    "site": "bayuproject",
+    "public": ".",
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"]
   }
 }

@@ -1,0 +1,237 @@
+body {
+  font-family: 'Montserrat', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: #181c23;
+  position: relative;
+}
+
+.background {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 0;
+  background: url('background.png') no-repeat center center/cover, linear-gradient(120deg, #6b4eff 10%, #4b8ce8 100%);
+  filter: blur(1px) brightness(0.95);
+}
+
+main {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+}
+
+.profile-card {
+  background: #27282d;
+  border-radius: 32px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+  color: #fff;
+  text-align: center;
+  padding: 2.5rem 2rem;
+  max-width: 760px;
+  width: 100%;
+  margin: 2rem auto;
+  position: relative;
+}
+
+.content-split {
+  display: flex;
+  flex-direction: column;
+  gap: 2.2rem;
+}
+
+.profile-left,
+.profile-right {
+  width: 100%;
+}
+
+.profile-img {
+  width: 110px;
+  height: 110px;
+  margin: 0 auto 1.2rem;
+  border-radius: 50%;
+  border: 3px solid #b1aaff;
+  box-sizing: border-box;
+  overflow: hidden;
+  background: #25273b;
+}
+
+.profile-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.status-badge {
+  display: inline-block;
+  margin-bottom: 1rem;
+  padding: 0.3em 1.1em;
+  background: #232c26;
+  color: #14d964;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  border: 1px solid #14d964;
+  font-weight: 500;
+}
+
+.name {
+  margin: 0.7rem 0 0.5rem;
+  font-size: 2.1rem;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.desc {
+  font-size: 1.05rem;
+  color: #bdbecb;
+  margin: 0 0 1.6rem;
+}
+
+.nav-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 2.2rem;
+  margin-bottom: 1.1rem;
+  border-bottom: 1px solid #423c5b;
+  padding-bottom: 0.3rem;
+}
+
+.nav-tabs a {
+  color: #bdbecb;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.05rem;
+  transition: color 0.2s;
+  position: relative;
+  padding-bottom: 0.3rem;
+}
+
+.nav-tabs a.active,
+.nav-tabs a:hover {
+  color: #fff;
+}
+
+.nav-tabs a.active::after,
+.nav-tabs a:hover::after {
+  content: '';
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: #a387fa;
+  border-radius: 1px;
+  position: absolute;
+  left: 0; bottom: -4px;
+}
+
+.social-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1.1rem 1.1rem;
+  margin: 2rem 0 1.4rem;
+}
+
+.social-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  border: 2px solid #a387fa;
+  border-radius: 10px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #bdbecb;
+  padding: 0.7em 0;
+  text-decoration: none;
+  transition: background 0.18s, color 0.18s, border 0.18s;
+  box-shadow: 0 1px 6px 0 rgba(163, 135, 250, 0.07);
+}
+
+.social-btn:hover,
+.social-btn:focus {
+  background: #a387fa;
+  color: #23242b;
+  border-color: #fff;
+}
+
+footer {
+  font-size: 0.93rem;
+  color: #7f8696;
+  margin-top: 1rem;
+}
+
+/* DESKTOP SPLIT LAYOUT */
+@media (min-width: 900px) {
+  .content-split {
+    flex-direction: row;
+    gap: 3.8rem;
+    align-items: flex-start;
+    justify-content: center;
+    text-align: left;
+  }
+  .profile-left {
+    width: 320px;
+    min-width: 260px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .profile-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  .profile-right .nav-tabs {
+    justify-content: flex-start;
+    margin-left: 0;
+  }
+  .profile-img {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+/* MOBILE: tetap vertikal */
+@media (max-width: 899px) {
+  .content-split {
+    flex-direction: column;
+    gap: 2rem;
+    text-align: center;
+  }
+  .profile-left,
+  .profile-right {
+    width: 100%;
+    align-items: center;
+    text-align: center;
+  }
+  .profile-img {
+    margin: 0 auto 1.2rem;
+  }
+  .social-grid {
+    grid-template-columns: 1fr;
+    gap: 0.7rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .profile-card {
+    max-width: 95vw;
+    padding: 1.2rem 0.3rem;
+    border-radius: 18px;
+  }
+  .nav-tabs {
+    gap: 0.8rem;
+  }
+}
+
+/* Optional visual debugging for split zones (remove in production)
+.profile-left { outline: 2px solid red; }
+.profile-right { outline: 2px solid blue; }
+*/
