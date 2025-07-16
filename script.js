@@ -1668,4 +1668,102 @@ const tabs = document.querySelectorAll('.tab');
         });
         ready.run();
       })();
+
+// Contact Me Form
+(function () {
+  const root = document.querySelector(".contact-stepper-minimalist-container");
+  const steps = Array.from(root.querySelectorAll(".stepper-step"));
+  const dots = Array.from(root.querySelectorAll(".stepper-dot"));
+  const lines = Array.from(root.querySelectorAll(".stepper-line-inner"));
+  const form = root.querySelector(".stepper-form");
+  let currentStep = 0;
+
+  function showStep(idx) {
+    steps.forEach(
+      (step, i) => (step.style.display = i === idx ? "block" : "none")
+    );
+    dots.forEach((dot, i) => {
+      dot.classList.toggle("stepper-dot-active", i <= idx);
+      dot.classList.toggle("stepper-dot-current", i === idx);
+      if (i === idx) {
+        dot.classList.add("dot-animate");
+        setTimeout(() => dot.classList.remove("dot-animate"), 500);
+      }
+    });
+    lines.forEach((line, i) => {
+      if (i < idx) {
+        line.style.width = "100%";
+        line.classList.add("line-animate");
+      } else {
+        line.style.width = "0%";
+        line.classList.remove("line-animate");
+      }
+    });
+    setTimeout(() => {
+      const input = steps[idx].querySelector("input,textarea");
+      if (input) input.focus();
+    }, 100);
+  }
+
+  root.querySelectorAll(".stepper-next").forEach((btn) => {
+    btn.onclick = function () {
+      const stepDiv = btn.closest(".stepper-step");
+      const input = stepDiv.querySelector("input,textarea");
+      if (input && !input.checkValidity()) {
+        input.reportValidity();
+        return;
+      }
+      if (currentStep < steps.length - 1) {
+        currentStep++;
+        showStep(currentStep);
+      }
+    };
+  });
+
+  root.querySelectorAll(".stepper-back").forEach((btn) => {
+    btn.onclick = function () {
+      if (currentStep > 0) {
+        currentStep--;
+        showStep(currentStep);
+      }
+    };
+  });
+
+  // Intercept submit for AJAX to Formspree
+  form.onsubmit = function (e) {
+    e.preventDefault();
+    const data = new FormData(form);
+    fetch(form.action, {
+      method: "POST",
+      body: data,
+      headers: { Accept: "application/json" },
+    })
+      .then((response) => {
+        form.style.display = "none";
+        root.querySelector(".stepper-success").style.display = "flex";
+      })
+      .catch((error) => {
+        form.style.display = "none";
+        root.querySelector(".stepper-success .success-message").textContent =
+          "Sorry, there was an error. Please try again.";
+        root.querySelector(".stepper-success").style.display = "flex";
+      });
+  };
+
+  steps.forEach((step, idx) => {
+    const input = step.querySelector("input,textarea");
+    if (input) {
+      input.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" && !e.shiftKey) {
+          e.preventDefault();
+          if (idx < steps.length - 1) {
+            steps[idx].querySelector(".stepper-next").click();
+          }
+        }
+      });
+    }
+  });
+
+  showStep(currentStep);
+})();
   

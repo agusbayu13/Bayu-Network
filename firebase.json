@@ -2,6 +2,20 @@
   "hosting": {
     "site": "bayuproject",
     "public": ".",
-    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"]
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      },
+      {
+        "source": "/home",
+        "destination": "/home.html"
+      },
+      {
+        "source": "/home1",
+        "destination": "/home1.html"
+      }
+    ]
   }
 }
